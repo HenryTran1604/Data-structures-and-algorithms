@@ -24,11 +24,13 @@ void Try(int i)
 	}
 }
 int main() {
+	ios::sync_with_stdio(0);
+	cin.tie(0); cout.tie(0);
 	inp();
 	Try(1);
 	return 0;
 }
-
+/*Code by: Tran Quang Huy*/
 
 
 
