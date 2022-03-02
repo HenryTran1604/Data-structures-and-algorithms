@@ -1,11 +1,7 @@
 #include <bits/stdc++.h>
 #define ll  long long
 using namespace std;
-int b[25], n;
-void inp()
-{
-	cin >> n;
-}
+int b[25], n, ok = 0;
 void print()
 {
 	for(int i = 1; i <= n/2; i++)
@@ -14,21 +10,31 @@ void print()
 		cout << b[i] << " ";
 	cout << endl;
 }
-void Try(int i)
+void create()
 {
-	for(int j = 0; j < 2; j++)
+	print();
+	int i = n/2;
+	while(b[i] == 1)
 	{
-		b[i] = j;
-		if(i == n/2) print();
-		else Try(i+1);
+		b[i] = 0;
+		i--;
+	}
+	if(i == 0) ok = 1;
+	else
+	{
+		b[i] = 1;
 	}
 }
 int main() {
-	inp();
-	Try(1);
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+	cin >> n;
+	while(!ok)
+	{
+		create();
+	}
 	return 0;
 }
-
 
 
 
