@@ -8,11 +8,11 @@ void inp()
 }
 void print()
 {
-		for(int i = 1; i <= n/2; i++)
-			cout << b[i] << " ";
-		for(int i = n/2; i > 0; i--)
-			cout << b[i] << " ";
-		cout << endl;
+	for(int i = 1; i <= n/2; i++)
+		cout << b[i] << " ";
+	for(int i = n/2; i > 0; i--)
+		cout << b[i] << " ";
+	cout << endl;
 }
 void Try(int i)
 {
