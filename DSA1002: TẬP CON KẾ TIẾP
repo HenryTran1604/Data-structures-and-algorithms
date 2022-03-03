@@ -6,7 +6,7 @@ void in()
 {
 	cin >> n >> k;
 	for(int i = 1; i <= k; i++)
-		cin >> a[i];
+	cin >> a[i];
 }
 void SinhKeTiep()
 {
@@ -23,8 +23,8 @@ void SinhKeTiep()
 	cout << endl;
 }
 int main() {
-  ios::sync_with_stdio(0);
-  cin.tie(0); cout.tie(0);
+  	ios::sync_with_stdio(0);
+ 	cin.tie(0); cout.tie(0);
 	int t; cin >> t;
 	while(t--)
 	{
