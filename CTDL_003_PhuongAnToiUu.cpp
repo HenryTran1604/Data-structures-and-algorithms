@@ -41,4 +41,4 @@ int main()
     for(int i = 1; i <= num; i++)
         cout << res[i] << " ";
 }
-
+/*Code by: Tran Quang Huy*/
