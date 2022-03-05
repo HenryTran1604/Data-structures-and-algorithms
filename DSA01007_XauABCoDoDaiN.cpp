@@ -1,24 +1,21 @@
 #include <bits/stdc++.h>
+#define maxn 1e6
+using ll = long long;
 using namespace std;
-int n, a[20], mark[20] = {};
+int n, a[20];
 void in()
 {
 	for(int i = 1; i <= n; i++)
-		cout << a[i];
+		cout << char(a[i] + 'A');
 	cout << " ";
 }
-void Try(int j)
+void Try(int i)
 {
-	for(int i = n; i >= 1; i--)
+	for(int j = 0; j < 2; j++)
 	{
-		if(mark[i] == 0)
-		{
-			a[j] = i;
-			mark[i] = 1;
-			if(j == n) in();
-			else Try(j+1);
-			mark[i] = 0; 
-		}
+		a[i] = j;
+		if(i == n) in();
+		else Try(i+1);
 	}
 }
 int main()
@@ -32,3 +29,5 @@ int main()
 	}
 	return 0;
 }
+
+
