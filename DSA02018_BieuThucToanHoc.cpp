@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 using ll = long long;
-int a[6], id[6], x[5];
+int a[6], id[6], sign[5], mark[6];
 bool ok = 0, en;
 int calc(int x, int y, int z)
 {
@@ -13,46 +13,29 @@ void check()
 {
 	ll res = a[id[1]];
 	for(int i = 2; i <= 5; i++)
-	{
-		res = calc(res, a[id[i]], x[i-1]);
-	}
-//	cout << res << endl;
+		res = calc(res, a[id[i]], sign[i-1]);
 	if(res == 23)
-	{
 		ok = 1;
-//		cout << a[id[1]] << " ";
-//		for(int i = 2; i <= 5; i++)
-//		{
-//			cout << x[i] << " " << a[id[i]] << " ";
-//		}
-//		cout << endl;
-	}
 }
-void Try(int i)
+void TrySign(int i) // + - *
 {
 	for(int j = 1; j <= 3; j++)
 	{
-		x[i] = j;
+		sign[i] = j;
 		if(i == 4) check();
-		else Try(i+1); 
+		else TrySign(i+1); 
 	}
 }
-void sinhhoanvi()
+void TryNum(int i)
 {
-	Try(1);
-	int i = 4; 
-	while(id[i] > id[i+1]) i--;
-	if(i == 0) en = 1;
-	else
+	for(int j = 1; j <= 5; j++)
 	{
-		int j = 5;
-		while(id[j] < id[i]) j--;
-		swap(id[i], id[j]);
-		int c = i+1, d = 5;
-		while(c < d)
-		{
-			swap(id[c], id[d]);
-			c++; d--;
+		if(!mark[j]){
+			mark[j] = 1;
+			id[i] = j;
+			if(i == 5) TrySign(1);
+			else TryNum(i+1);
+			mark[j] = 0;
 		}
 	}
 }
@@ -63,18 +46,11 @@ int main()
 	{
 		ok = 0; en = 0;
 		for(int i = 1; i <= 5; i++)
-		{
 			cin >> a[i];
-			id[i] = i;
-		}
-		while(en == 0 && ok == 0)
-		{
-			sinhhoanvi();
-//			cout << ok << endl;
-		}
+		TryNum(1);
 		if(ok == 1) cout << "YES\n";
 		else cout << "NO\n";
 	}
 	return 0;
 }
-
+/*Code by: Tran Quang Huy*/
